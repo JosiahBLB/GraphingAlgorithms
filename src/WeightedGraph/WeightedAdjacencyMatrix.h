@@ -9,8 +9,7 @@
 
 class WeightedAdjacencyList;
 
-class WeightedAdjacencyMatrix
-{
+class WeightedAdjacencyMatrix {
   private:
     std::vector<int> adjMat;
     int n;
@@ -20,9 +19,7 @@ class WeightedAdjacencyMatrix
     ~WeightedAdjacencyMatrix() = default;
     WeightedAdjacencyMatrix(int _n)
       : n{ _n }
-      , adjMat{ std::vector<int>(_n * _n, -1) }
-    {
-    }
+      , adjMat{ std::vector<int>(_n * _n, -1) } {}
     void addEdge(int src, int dest, int weight);
     void removeEdge(int src, int dest);
     int getEdge(int src, int dest);

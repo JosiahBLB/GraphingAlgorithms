@@ -1,10 +1,10 @@
 #include "CycleDetector.h"
 
-void CycleDetector::dfs(int u, int parent = -1)
-{
+void CycleDetector::dfs(int u, int parent) {
     nodeStates[u] = NodeState::IN_PROGRESS;
     for (auto v : adjList.getNode(u)) {
-        if (v == parent) continue; // skip edge back to parent
+        if (v == parent)
+            continue; // skip edge back to parent
         switch (nodeStates[v]) {
             case NodeState::UNVISITED:
                 dfs(v, u); // discovery edge: recurse
@@ -20,7 +20,7 @@ void CycleDetector::dfs(int u, int parent = -1)
 }
 
 bool CycleDetector::containsCycle() {
-    // for every starting vertex in the graph 
+    // for every starting vertex in the graph
     // time complexity: O(|E|)
     // explanation: could explore every edge
     for (int u = 0; u < adjList.size(); ++u) {

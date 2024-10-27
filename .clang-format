@@ -1,6 +1,6 @@
 ---
 Language:        Cpp
-AccessModifierOffset: -2
+AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 AlignArrayOfStructures: None
 AlignConsecutiveAssignments:
@@ -66,7 +66,7 @@ BraceWrapping:
   BeforeLambdaBody: false
   BeforeWhile:     false
   IndentBraces:    false
-  SplitEmptyFunction: true
+  SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: true
 BreakAfterAttributes: Never
@@ -74,7 +74,7 @@ BreakAfterJavaFieldAnnotations: false
 BreakArrays:     true
 BreakBeforeBinaryOperators: None
 BreakBeforeConceptDeclarations: Always
-BreakBeforeBraces: Mozilla
+BreakBeforeBraces: Attach
 BreakBeforeInlineASMColon: OnlyMultiline
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: BeforeComma
