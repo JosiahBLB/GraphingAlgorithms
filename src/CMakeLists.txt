@@ -31,11 +31,13 @@ add_executable(GraphAlgorithms_Test ${SOURCES} ${TESTS})
 target_include_directories(GraphAlgorithms PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/GraphRepresentation
     ${CMAKE_CURRENT_LIST_DIR}/GraphTraversal
+    ${CMAKE_CURRENT_LIST_DIR}/WeightedGraph
 )
 
 target_include_directories(GraphAlgorithms_Test PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/GraphRepresentation
     ${CMAKE_CURRENT_LIST_DIR}/GraphTraversal
+    ${CMAKE_CURRENT_LIST_DIR}/WeightedGraph
 )
 
 target_link_libraries(GraphAlgorithms_Test
