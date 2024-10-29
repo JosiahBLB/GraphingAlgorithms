@@ -10,11 +10,11 @@
 class WeightedAdjacencyMatrix;
 
 class WeightedAdjacencyList {
-  private:
+private:
     std::vector<std::vector<std::pair<int, int>>> adjList;
     int n;
 
-  public:
+public:
     WeightedAdjacencyList() = default;
     ~WeightedAdjacencyList() = default;
     WeightedAdjacencyList(int _n)

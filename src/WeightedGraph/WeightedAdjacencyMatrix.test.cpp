@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 
 class WeightedAdjacencyMatrixTestFixture : public testing::Test {
-  protected:
+protected:
     int n;
     WeightedAdjacencyMatrix adjMat;
     std::vector<std::tuple<int, int, int>> edges{ { 0, 1, 1 }, { 1, 0, 3 },
