@@ -5,11 +5,9 @@
             "label": "Format C++ Files",
             "type": "shell",
             "command": "find . -name '*.cpp' -o -name '*.h' | xargs clang-format -i",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}/src"
+            }
         }
     ]
 }

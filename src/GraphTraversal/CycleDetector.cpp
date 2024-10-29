@@ -1,5 +1,24 @@
 #include "CycleDetector.h"
 
+bool CycleDetector::containsCycle() {
+    // for every starting vertex in the graph
+    // time complexity: O(|E|)
+    // explanation: could explore every edge
+
+    // init
+    cycleFound = false;
+    nodeStates.assign(adjList.size(), NodeState::UNVISITED);
+
+    // explore unvisited nodes
+    for (int u = 0; u < adjList.size(); ++u) {
+        if (nodeStates[u] == NodeState::FINISHED) {
+            continue; // skip discovered node
+        }
+        dfs(u);
+    }
+    return cycleFound;
+}
+
 void CycleDetector::dfs(int u, int parent) {
     nodeStates[u] = NodeState::IN_PROGRESS;
     for (auto v : adjList.getNode(u)) {
@@ -7,7 +26,7 @@ void CycleDetector::dfs(int u, int parent) {
             continue; // skip edge back to parent
         switch (nodeStates[v]) {
             case NodeState::UNVISITED:
-                dfs(v, u); // discovery edge: recurse
+                dfs(v, u); // discovery edge: explore
                 break;
             case NodeState::IN_PROGRESS:
                 cycleFound = true;
@@ -17,22 +36,4 @@ void CycleDetector::dfs(int u, int parent) {
         }
     }
     nodeStates[u] = NodeState::FINISHED;
-}
-
-bool CycleDetector::containsCycle() {
-    // for every starting vertex in the graph
-    // time complexity: O(|E|)
-    // explanation: could explore every edge
-    for (int u = 0; u < adjList.size(); ++u) {
-        if (nodeStates[u] == NodeState::FINISHED) {
-            continue; // skip discovered node
-        }
-        dfs(u);
-    }
-
-    // save and return result
-    bool result = cycleFound;
-    cycleFound = false;
-    nodeStates = std::vector<NodeState>(adjList.size(), NodeState::UNVISITED);
-    return result;
 }
