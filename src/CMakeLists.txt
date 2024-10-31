@@ -5,6 +5,7 @@ set(SOURCES
     WeightedGraph/WeightedAdjacencyList.cpp
     GraphTraversal/CycleDetector.cpp
     GraphTraversal/ShortestPath.cpp
+    GraphOperation/TopologicalSort.cpp
 )
 
 set(HEADERS
@@ -14,6 +15,7 @@ set(HEADERS
     WeightedGraph/WeightedAdjacencyMatrix.h
     GraphTraversal/CycleDetector.h
     GraphTraversal/ShortestPath.h
+    GraphOperation/TopologicalSort.h
 )
 
 set(TESTS
@@ -23,6 +25,7 @@ set(TESTS
     WeightedGraph/WeightedAdjacencyList.test.cpp
     GraphTraversal/CycleDetector.test.cpp
     GraphTraversal/ShortestPath.test.cpp
+    GraphOperation/TopologicalSort.test.cpp
 )
 
 add_executable(GraphAlgorithms main.cpp ${SOURCES})
@@ -31,12 +34,14 @@ add_executable(GraphAlgorithms_Test ${SOURCES} ${TESTS})
 target_include_directories(GraphAlgorithms PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/GraphRepresentation
     ${CMAKE_CURRENT_LIST_DIR}/GraphTraversal
+    ${CMAKE_CURRENT_LIST_DIR}/GraphOperation
     ${CMAKE_CURRENT_LIST_DIR}/WeightedGraph
 )
 
 target_include_directories(GraphAlgorithms_Test PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/GraphRepresentation
     ${CMAKE_CURRENT_LIST_DIR}/GraphTraversal
+    ${CMAKE_CURRENT_LIST_DIR}/GraphOperation
     ${CMAKE_CURRENT_LIST_DIR}/WeightedGraph
 )
 
